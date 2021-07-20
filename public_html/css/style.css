@@ -1,0 +1,103 @@
+html,
+body {
+  /* height: 100%; */
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body::-webkit-scrollbar {
+  width: .75em;
+}
+
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+          box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2980b9;
+}
+
+table {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+/* .container-fluid {
+  height: 100%;
+} */
+
+table,
+th,
+td {
+  border-collapse: collapse;
+}
+
+th,
+td {
+  border: 1px solid black;
+  padding: 15px;
+  text-align: center;
+}
+
+tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+tr:nth-child(odd) {
+  background-color: #e9e9e9;
+}
+
+th {
+  background-color: #2980b9;
+  color: #ffffff;
+}
+
+.add-column {
+  background-color: #fff;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+}
+
+iframe {
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/* Set height of the grid so .sidenav can be 100% (adjust as needed) */
+.row.content {
+  height: 100%;
+}
+
+/* Set gray background color and 100% height */
+.sidenav {
+  background-color: #cecece;
+  height: 100%;
+}
+
+/* On small screens, set height to 'auto' for the grid */
+@media screen and (max-width: 767px) {
+  .row.content {
+    height: auto;
+  }
+}
+
+.disabled {
+  pointer-events: none;
+  cursor: not-allowed;
+  opacity: .5;
+}
+
+.disabled:focus {
+  border-color: rgba(255, 255, 255, 0.5);
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0), 0 0 8px rgba(102, 175, 233, 0);
+}

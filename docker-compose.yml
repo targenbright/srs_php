@@ -1,0 +1,48 @@
+# version: "3.2"
+# services:
+#   php:
+#     build: './php/'
+#     container_name: php
+#     networks:
+#       - timargenbrightcom_argenNetwork
+#     volumes:
+#       - ./public_html/:/var/www/html/
+#   apache:
+#     build: './apache/'
+#     container_name: apache
+#     depends_on:
+#       - php
+#     networks:
+#       - timargenbrightcom_argenNetwork
+#     ports:
+#       - "8080:80"
+#     volumes:
+#       - ./public_html/:/var/www/html/
+# networks:
+#   timargenbrightcom_argenNetwork:
+#     external: true
+
+version: '3'
+services:
+    nginx:
+        image: nginx:latest
+        container_name: nginx
+        ports:
+            - "3001:80"
+        networks:
+            - timargenbrightcom_argenNetwork
+        volumes:
+            - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+            - ./public_html:/app
+        links:
+            - php
+    php:
+        build: './php/'
+        container_name: php
+        networks:
+            - timargenbrightcom_argenNetwork
+        volumes:
+            - ./public_html:/app
+networks:
+    timargenbrightcom_argenNetwork:
+        external: true
