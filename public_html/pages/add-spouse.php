@@ -37,7 +37,7 @@ if (isset($_POST["firstName"]) || isset($_POST["lastName"])) :
     $spouseQuery = "SELECT AdultID FROM ADULT WHERE Email = '$email'";
     $spouseResult = $connection->query($spouseQuery);
 
-    if (mysqli_num_rows($spouseResult)==0) {
+    if (mysqli_num_rows($spouseResult)>0) {
         $spouseId = $spouseResult->fetch_object()->AdultID;
     }
 
@@ -48,7 +48,7 @@ if (isset($_POST["firstName"]) || isset($_POST["lastName"])) :
             <Strong>Error updating information: </Strong> First Name, Last Name, Email, and Role fields must not be blank.
         </div>
         <?php
-    } else if ($spouseId) {
+    } else if (isset($spouseId)) {
         ?>
         <div class="alert alert-danger">
             <Strong>Person already exists: </Strong> Search for them by email in existing accounts.
